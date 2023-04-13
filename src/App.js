@@ -1,15 +1,22 @@
 import "./App.css";
-import Navbar from "./Components/Navbar";
+
+import { Header } from "./Components/Header";
+import Footer from "./Components/Footer";
+import { Content } from "./Components/Content";
 
 function App() {
-  console.log("Hello World!!")
+  
+  var title = "React App"
+  var payload = "This is Called PayLoad..."
+  
   return (
-    <>
-      
-      <Navbar title="MyReact App" home="ReactHome" Search="Searching..."/>
-      {/* <Navbar/> */}
+      <div className="App">
 
-    </>
+        <Header title = {title}/>
+        <Content payload = {payload}/>
+
+        <Footer/>
+      </div>
     
   );
 }
