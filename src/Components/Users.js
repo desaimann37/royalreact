@@ -1,24 +1,55 @@
-import React from 'react'
 
-export const Users = (props)=>{
+import React, { useState } from "react";
+import { UserList } from "./UserList";
 
-    console.log(props.user);
-    return(
+export const Users = () => {
 
-        <div>
-            
-            User Component
-            <p>{props.payload}</p>
-            <p>{props.user.name}</p>
-            <p>{props.user.age}</p>
-            
-            <button onClick={props.test}>ClickMe 2</button>
+    var users = [
+        {
+          id: 1,
+          name: "Raj",
+          email: "raj@gmail.com",
+          age: 30,
+          gender: "Male",
+        },
+        {
+          id: 2,
+          name: "Jaya",
+          email: "jaya@gmail.com",
+          age: 45,
+          gender: "FeMale",
+        },
+        {
+          id: 3,
+          name: "Parth",
+          email: "parth@gmail.com",
+          age: 27,
+          gender: "Male",
+        },
+      ];
+    
+    //initial value...
+    //var userData;
+    const [userData, setuserData] = useState(users)
 
-        </div>
+
+ 
+  function deleteUser(id){
+    users = userData.filter((u)=>{
+        return u.id !== id
+    })
+    console.log(users)
+    //updated user
+    setuserData(users)
+
+  }
 
 
 
-
-    )
-
-}
+  return (
+    <div>
+        {/* <UserList users ={users} deleteUser = {deleteUser}/> */}
+        <UserList users ={userData} deleteUser = {deleteUser}/>
+    </div>
+  );
+};
